@@ -1,30 +1,31 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <Navigation />
+    <router-view />
   </div>
-  <router-view/>
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Navigation from './components/navigation.vue';
+
+export default defineComponent({
+  components: {
+    Navigation,
+  },
+});
+</script>
 
 <style lang="scss">
+@import 'styles/colors';
+@import 'styles/reset';
+@import url(https://allfont.de/allfont.css?fonts=franklin-gothic-book);
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Franklin Gothic Book, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  height: 100vh;
+  background-color: $color-blue-dark;
 }
 </style>
