@@ -46,11 +46,14 @@ export default defineComponent({
 <style scoped lang="scss">
 @import '../styles/colors';
 @import url('https://fonts.googleapis.com/css2?family=Rationale&display=swap');
+
+$header-height: 55px;
+
 .navigation {
   &-header {
     position: sticky;
     width: 100%;
-    height: 55px;
+    height: $header-height;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -78,10 +81,11 @@ export default defineComponent({
   }
 
   &-list {
-    height: max-content;
+    height: calc(100vh - $header-height);
     background-color: $color-blue-dark;
     position: absolute;
     width: 100vw;
+    z-index: 10;
     &-item {
       color: $color-blue-light;
       font-size: 20px;
