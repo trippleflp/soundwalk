@@ -9,7 +9,12 @@
       />
     </header>
     <nav class="navigation-list" v-show="navigationVisible">
-      <li class="navigation-list-item" v-for="link in routeList" v-bind:key="link">
+      <li
+        class="navigation-list-item"
+        v-for="link in routeList"
+        v-bind:key="link"
+        @click="navigateRoute(link)"
+      >
         {{ link }}
       </li>
     </nav>
@@ -18,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-// import router from '@/router';
+import router from '@/router';
 
 export default defineComponent({
   name: 'Navigation',
@@ -33,10 +38,15 @@ export default defineComponent({
     ];
 
     const navigationVisible = ref(false);
+    function navigateRoute(name: string) {
+      router.push({ name });
+      navigationVisible.value = !navigationVisible.value;
+    }
 
     return {
       routeList,
       navigationVisible,
+      navigateRoute,
     };
   },
 });
