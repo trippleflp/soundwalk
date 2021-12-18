@@ -11,6 +11,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Über Sound Walk',
     component: () => import(/* webpackChunkName: "home" */ '../views/About.vue'),
   },
+  {
+    path: '/contact',
+    name: 'Kontakt',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Contact.vue'),
+  },
 ];
 
 const router = createRouter({

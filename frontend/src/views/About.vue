@@ -18,15 +18,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'About',
-  setup() {
-    function logmich() {
-      // eslint-disable-next-line no-console
-      console.log('lol');
-    }
-    return {
-      logmich,
-    };
-  },
 });
 </script>
 
