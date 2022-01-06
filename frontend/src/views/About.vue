@@ -26,13 +26,6 @@ export default defineComponent({
 
 .about {
   &-header {
-    color: $color-blue-light;
-    font-weight: 600;
-    font-size: 27px;
-    line-height: 31px;
-    text-align: center;
-    margin-top: 28px;
-    margin-bottom: 28px;
     > span {
       font-style: italic;
     }
@@ -43,10 +36,8 @@ export default defineComponent({
     margin: 37px auto 50px auto;
   }
   &-text {
-    display: block;
-    padding: 0 45px;
-    font-size: 13px;
-    line-height: 23px;
+    // display: block;
+    // padding: 0 45px;
     margin-top: 30px;
   }
   &-button {

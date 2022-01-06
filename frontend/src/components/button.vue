@@ -28,5 +28,6 @@ div {
   font-weight: 600;
   font-size: 18px;
   line-height: 18px;
+  white-space: nowrap;
 }
 </style>

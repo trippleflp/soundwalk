@@ -28,4 +28,21 @@ export default defineComponent({
   height: 100vh;
   background-color: $color-blue-dark;
 }
+
+p {
+  font-size: 18px;
+  line-height: 23px;
+  display: block;
+  padding: 0 30px;
+}
+
+h2 {
+  color: $color-blue-light;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 31px;
+  text-align: center;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
 </style>

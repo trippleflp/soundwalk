@@ -28,15 +28,19 @@ import router from '@/router';
 export default defineComponent({
   name: 'Navigation',
   setup() {
-    const routeList = [
-      'Start',
-      'Gesammelte Geräusche',
-      'Zurückgelegte Route',
-      'Track anhören',
-      'Über Sound Walk',
-      'Kontakt',
-    ];
+    // const routeList2 = [
+    //   'Start',
+    //   'Gesammelte Geräusche',
+    //   'Zurückgelegte Route',
+    //   'Track anhören',
+    //   'Über Sound Walk',
+    //   'Kontakt',
+    // ];
 
+    const routeList = router
+      .getRoutes()
+      .map((route) => route.name?.toString())
+      .filter((name) => name !== undefined) as string[];
     const navigationVisible = ref(false);
     function navigateRoute(name: string) {
       router.push({ name });
@@ -98,6 +102,8 @@ $header-height: 55px;
     z-index: 10;
     &-item {
       color: $color-blue-light;
+
+      font-weight: 650;
       font-size: 20px;
       line-height: 23px;
       text-align: right;

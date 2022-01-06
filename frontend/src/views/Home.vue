@@ -2,8 +2,8 @@
   <div class="home">
     <img class="home-image" alt="Soundwalk logo" src="@/assets/Soundwalk.png" />
     <p class="home-text">
-      Willkommen bei Augsburgs akustischer Soundjagd. Hör’ genau hin und finde jeweils die nächste
-      Station. Am Ende kannst du dir einen Track aus den gesammelten Geräuschen anhören.
+      Willkommen bei Augsburgs akustischer Schnitzeljagd. Höre genau hin und finde jeweils die
+      nächste Station. Am Ende kannst du dir einen Track aus allen Geräuschen anhören.
     </p>
     <CstButton class="home-button" :text="'Start'" />
   </div>
@@ -34,12 +34,10 @@ export default defineComponent({
     display: block;
     margin: 37px auto 50px auto;
   }
-  &-text {
-    display: block;
-    padding: 0 45px;
-    font-size: 13px;
-    line-height: 23px;
-  }
+  // &-text {
+  //   display: block;
+  //   padding: 0 30px;
+  // }
   &-button {
     position: absolute;
     left: 50%;

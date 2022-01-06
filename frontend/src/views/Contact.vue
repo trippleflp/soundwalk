@@ -3,8 +3,6 @@
     <h2 class="contact-header">Kontakt</h2>
     <p class="contact-text">Schreibe gerne eine Mail an:</p>
     <p class="contact-text">Johanna Rohr <br />johanna.rohr@posteo.de</p>
-    <p class="contact-text">Friedrich-List-Straße 2 <br />86153 Augsburg</p>
-    <img class="contact-image" alt="Soundwalk logo" src="@/assets/Soundwalk-small.png" />
   </div>
 </template>
 
@@ -36,10 +34,8 @@ export default defineComponent({
     bottom: 35px;
   }
   &-text {
-    display: block;
-    padding: 0 45px;
-    font-size: 13px;
-    line-height: 23px;
+    // display: block;
+    // padding: 0 45px;
     margin-top: 30px;
   }
   &-button {
