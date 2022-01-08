@@ -14,7 +14,7 @@
     </ul>
 
     <p>Dir fehlen noch Geräusche, um den Track anzuhören.</p>
-    <CstButton class="sounds-button" :text="'nächstes Geräusch'" />
+    <CstButton class="sounds-button" :text="'nächstes Geräusch'" :route="'/playsound'" />
   </div>
 </template>
 
@@ -71,11 +71,11 @@ export default defineComponent({
       width: 26px;
     }
   }
-  &-button {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 80px;
-  }
+  // &-button {
+  //   position: absolute;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   bottom: 80px;
+  // }
 }
 </style>

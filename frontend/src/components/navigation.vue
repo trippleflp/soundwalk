@@ -28,17 +28,9 @@ import router from '@/router';
 export default defineComponent({
   name: 'Navigation',
   setup() {
-    // const routeList2 = [
-    //   'Start',
-    //   'Gesammelte Geräusche',
-    //   'Zurückgelegte Route',
-    //   'Track anhören',
-    //   'Über Sound Walk',
-    //   'Kontakt',
-    // ];
-
     const routeList = router
       .getRoutes()
+      .filter((route) => !route.meta.noNav)
       .map((route) => route.name?.toString())
       .filter((name) => name !== undefined) as string[];
     const navigationVisible = ref(false);

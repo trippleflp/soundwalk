@@ -5,7 +5,7 @@
       Willkommen bei Augsburgs akustischer Schnitzeljagd. Höre genau hin und finde jeweils die
       nächste Station. Am Ende kannst du dir einen Track aus allen Geräuschen anhören.
     </p>
-    <CstButton class="home-button" :text="'Start'" />
+    <CstButton class="home-button" :text="'Start'" :route="'/playsound'" />
   </div>
 </template>
 
@@ -16,15 +16,6 @@ import CstButton from '@/components/button.vue';
 export default defineComponent({
   name: 'Home',
   components: { CstButton },
-  setup() {
-    function logmich() {
-      // eslint-disable-next-line no-console
-      console.log('lol');
-    }
-    return {
-      logmich,
-    };
-  },
 });
 </script>
 
@@ -38,11 +29,5 @@ export default defineComponent({
   //   display: block;
   //   padding: 0 30px;
   // }
-  &-button {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 80px;
-  }
 }
 </style>

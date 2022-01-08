@@ -1,5 +1,7 @@
 <template>
-  <div>{{ props.text }}</div>
+  <router-link :to="props.route"
+    ><div>{{ props.text }}</div></router-link
+  >
 </template>
 
 <script lang="ts">
@@ -9,6 +11,7 @@ export default defineComponent({
   name: 'cstButtom',
   props: {
     text: String,
+    route: String,
   },
   setup(props) {
     return {
@@ -29,5 +32,10 @@ div {
   font-size: 18px;
   line-height: 18px;
   white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 80px;
+  color: white;
 }
 </style>

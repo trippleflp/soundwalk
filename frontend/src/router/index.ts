@@ -1,40 +1,68 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import Home from '@/views/Home.vue';
+import PlaySound from '@/views/PlaySound.vue';
+import SoundList from '@/views/SoundList.vue';
+import SoundMap from '@/views/SoundMap.vue';
+import Walk from '@/views/Walk.vue';
+import Track from '@/views/Track.vue';
+import About from '@/views/About.vue';
+import Contact from '@/views/Contact.vue';
+import QrCode from '@/views/QrCode.vue';
+import TrackNotFinished from '@/views/TrackNotFinished.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Start',
-    component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+    component: Home,
   },
   {
     path: '/playsound',
     name: 'Nächstes Geräusch',
-    component: () => import(/* webpackChunkName: "playSound" */ '@/views/PlaySound.vue'),
+    component: PlaySound,
   },
   {
     path: '/soundlist',
     name: 'Gefundene Geräusche',
-    component: () => import(/* webpackChunkName: "soundlist" */ '@/views/SoundList.vue'),
+    component: SoundList,
   },
   {
-    path: '/route',
+    path: '/walk',
     name: 'Zurückgelegte Route',
-    component: () => import(/* webpackChunkName: "route" */ '@/views/Route.vue'),
+    component: Walk,
   },
   {
     path: '/track',
     name: 'Track anhören',
-    component: () => import(/* webpackChunkName: "track" */ '@/views/Track.vue'),
+    component: Track,
   },
   {
     path: '/about',
     name: 'Über Sound Walk',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+    component: About,
   },
   {
     path: '/contact',
     name: 'Kontakt',
-    component: () => import(/* webpackChunkName: "contact" */ '@/views/Contact.vue'),
+    component: Contact,
+  },
+  {
+    path: '/qr',
+    name: 'qr',
+    component: QrCode,
+    meta: { noNav: true },
+  },
+  {
+    path: '/tracknotfinished',
+    name: 'tracknotfinished',
+    component: TrackNotFinished,
+    meta: { noNav: true },
+  },
+  {
+    path: '/soundmap',
+    name: 'soundmap',
+    component: SoundMap,
+    meta: { noNav: true },
   },
 ];
 
