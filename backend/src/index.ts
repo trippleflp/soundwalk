@@ -14,7 +14,7 @@ const sound = (req, res) => {
 const soundFile = (req, res) => {
   const soundData = getSoundData(req.params.id);
   res.writeHead(301, {
-    Location: `/data/sounds/${soundData.name}.wav`,
+    Location: `/api/data/sounds/${soundData.name}.wav`,
   });
   res.end();
 };
