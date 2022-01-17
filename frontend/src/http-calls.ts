@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Sound } from './types';
 
-const baseUrl = 'http://localhost:20001';
+const baseUrl = 'https://send-map.com/api';
 
 const getSoundData = (id: number): Promise<Sound> =>
   fetch(`${baseUrl}/sound/${id}`).then((res) => res.json());
