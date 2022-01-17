@@ -18,7 +18,7 @@ export default defineComponent({
 <style lang="scss">
 @import 'styles/colors';
 @import 'styles/reset';
-@import url(https://allfont.de/allfont.css?fonts=franklin-gothic-book);
+@import url('https://allfont.de/allfont.css?fonts=franklin-gothic-book');
 
 #app {
   font-family: Franklin Gothic Book, Helvetica, Arial, sans-serif;
