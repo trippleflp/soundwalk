@@ -16,18 +16,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+// eslint-disable-next-line import/no-cycle
+import router from '@/router';
+import State from '@/store';
+import { defineComponent, onBeforeMount } from 'vue';
 
 export default defineComponent({
   name: 'PlaySound',
   setup() {
-    function logmich() {
-      // eslint-disable-next-line no-console
-      console.log('lol');
-    }
-    return {
-      logmich,
-    };
+    onBeforeMount(() => {
+      if (State.currentId !== 9) {
+        router.replace('/tracknotfinished');
+      }
+    });
   },
 });
 </script>

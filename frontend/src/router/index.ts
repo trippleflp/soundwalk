@@ -9,6 +9,7 @@ import About from '@/views/About.vue';
 import Contact from '@/views/Contact.vue';
 import QrCode from '@/views/QrCode.vue';
 import TrackNotFinished from '@/views/TrackNotFinished.vue';
+import CorrectSound from '@/views/CorrectSound.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -62,6 +63,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/soundmap',
     name: 'soundmap',
     component: SoundMap,
+    meta: { noNav: true },
+  },
+  {
+    path: '/correctsound',
+    name: 'correctsound',
+    component: CorrectSound,
     meta: { noNav: true },
   },
 ];

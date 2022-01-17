@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Briefkasten",
+    "longlat": [48.365949, 10.902682]
+  },
+  {
+    "name": "Quietscheentenrad",
+    "longlat": [48.366615, 10.90181]
+  },
+  {
+    "name": "Parkscheinautomat",
+    "longlat": [48.368557, 10.902448]
+  },
+  {
+    "name": "Tram",
+    "longlat": [48.369638, 10.901279]
+  },
+  {
+    "name": "Kanalbruecke",
+    "longlat": [48.370219, 10.899961]
+  },
+  {
+    "name": "Muelltonne",
+    "longlat": [48.370721, 10.897]
+  },
+  {
+    "name": "Tuerklopfer",
+    "longlat": [48.36914, 10.898788]
+  },
+  {
+    "name": "Absperrkette",
+    "longlat": [48.369408, 10.899532]
+  }
+]

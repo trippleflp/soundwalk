@@ -91,7 +91,7 @@ $header-height: 55px;
     background-color: $color-blue-dark;
     position: absolute;
     width: 100vw;
-    z-index: 10;
+    z-index: 10000;
     &-item {
       color: $color-blue-light;
 

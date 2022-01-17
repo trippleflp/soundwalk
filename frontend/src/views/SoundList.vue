@@ -4,8 +4,10 @@
     <ul class="sounds-list">
       <li class="sounds-item" v-for="sound in list" :key="sound">
         <template v-if="sound">
-          <img class="sounds-item__play" alt="Soundwalk logo" src="@/assets/play.svg" />
-          <span>{{ sound }}</span>
+          <div @click="sound.audio.play()">
+            <img class="sounds-item__play" alt="Soundwalk logo" src="@/assets/play.svg" />
+            <span>{{ sound.name }}</span>
+          </div>
         </template>
         <template v-else>
           <img class="sounds-item__play" alt="Soundwalk logo" src="@/assets/play-nofill.svg" />
@@ -19,29 +21,31 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import CstButton from '@/components/button.vue';
+import State from '@/store';
+import { getSoundFileLink } from '@/http-calls';
 
 export default defineComponent({
   name: 'SoundList',
   components: { CstButton },
   setup() {
-    const list = [
-      'Briefkasten',
-      'Quietscheentenrad',
-      'Parkscheinautomat',
-      'Tram',
-      'Kanalbrücke',
-      'Mülltonne',
-      null,
-      null,
-    ];
-    function logmich() {
-      // eslint-disable-next-line no-console
-      console.log('lol');
+    const list = ref(new Array(8));
+    async function populateList() {
+      await State.waitDone();
+      console.log(State.data);
+
+      State.data
+        .map((sound, i) => ({ name: sound.name, audio: new Audio(getSoundFileLink(i)) }))
+        .removeLastCondition(State.currentId !== 9)
+        .forEach((sound, i) => {
+          list.value[i] = sound;
+        });
     }
+
+    populateList();
+
     return {
-      logmich,
       list,
     };
   },
@@ -60,7 +64,7 @@ export default defineComponent({
     font-size: 18px;
     margin-bottom: 20px;
     position: relative;
-    > span {
+    * span {
       position: absolute;
       color: $color-blue-light;
       padding-left: 20px;
