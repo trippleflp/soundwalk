@@ -19,10 +19,18 @@ const soundFile = (req, res) => {
   res.end();
 };
 
+const finalTrackFile = (req, res) => {
+  res.writeHead(301, {
+    Location: `/api/data/sounds/final-track.mp3`,
+  });
+  res.end();
+};
+
 export = cors(
   router(
     get('/hello/:who', hello),
     get('/sound/:id', sound),
+    get('/file/track', finalTrackFile),
     get('/file/:id', soundFile),
     async (request, response) => {
       await serveHandler(request, response, {

@@ -30,12 +30,11 @@ export default defineComponent({
 
     async function getSound() {
       await State.waitDone();
-      await State.raiseCurrentId();
       const id = State.currentId;
 
-      audio.value = new Audio(getSoundFileLink(id - 1));
+      audio.value = new Audio(getSoundFileLink(id));
       console.log(State);
-      location.value = [State.data[id - 1].longlat];
+      location.value = [State.data[id].longlat];
     }
 
     getSound();

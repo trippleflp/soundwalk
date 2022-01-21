@@ -4,7 +4,7 @@
       ref="map"
       style="width: 100%; height: 100%"
       v-model:zoom="mapConfig.zoom"
-      :center="icons[0].latlng"
+      :center="icons.length > 0 ? icons[0].latlng : centerLat"
     >
       <!-- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" -->
       <l-tile-layer
@@ -44,6 +44,7 @@ export default defineComponent({
     const mapConfig = {
       zoom: 19 - half,
     };
+    const centerLat = [48.368963, 10.898227];
 
     const icons = props.iconPositions?.map((longlat) => ({
       size: [48, 51],
@@ -54,6 +55,7 @@ export default defineComponent({
     return {
       mapConfig,
       icons,
+      centerLat,
     };
   },
 });
