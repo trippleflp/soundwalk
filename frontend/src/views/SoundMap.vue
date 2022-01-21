@@ -1,10 +1,10 @@
 <template>
   <div class="soundmap">
-    <h2 @click="audio.play()">
+    <h2 @click="if (audio) audio.play();">
       <img class="soundmap-header" alt="Soundwalk logo" src="@/assets/play.svg" />erneut abspielen
     </h2>
     <div class="soundmap-map">
-      <MapContainer :iconPositions="location" />
+      <MapContainer :iconPositions="location" v-if="location !== null" />
     </div>
     <p class="soundmap-text">
       Gehe zum angezeigten Standort und suche das abgespielte Geräusch. Dort findest du einen
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import CstButton from '@/components/button.vue';
 import MapContainer from '@/components/mapcontainer.vue';
 import State from '@/store';
@@ -25,10 +25,20 @@ export default defineComponent({
   name: 'Home',
   components: { CstButton, MapContainer },
   setup() {
-    const id = State.currentId;
-    const audio = new Audio(getSoundFileLink(id));
+    const audio = ref(null as unknown as HTMLAudioElement);
+    const location = ref(null as unknown as number[][]);
 
-    const location = [State.data[id - 1].longlat];
+    async function getSound() {
+      await State.waitDone();
+      await State.raiseCurrentId();
+      const id = State.currentId;
+
+      audio.value = new Audio(getSoundFileLink(id - 1));
+      console.log(State);
+      location.value = [State.data[id - 1].longlat];
+    }
+
+    getSound();
 
     return {
       audio,

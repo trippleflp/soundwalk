@@ -31,6 +31,7 @@ class Store {
     localStorage.setItem('currentId', (this.currentId + 1).toString());
     const id = localStorage.getItem('currentId');
     this.currentId = (() => (id ? parseInt(id, 10) : 0))();
+    return this.fillData();
   }
 
   async waitDone(): Promise<null> {
