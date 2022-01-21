@@ -3,14 +3,14 @@
     <h2 class="qr-header">QR-Code-Scanner</h2>
     <video class="qr-video" ref="vidRef"></video>
     <p v-if="falseQr">Der QR Code ist invalide</p>
-    <CstButton class="qr-button" :text="'Scan'" />
+    <!-- <CstButton class="qr-button" :text="'Scan'" /> -->
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
 import QrScanner from 'qr-scanner';
-import CstButton from '@/components/button.vue';
+// import CstButton from '@/components/button.vue';
 // eslint-disable-next-line
 import QrScannerWorkerPath from '!!file-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
 import State from '@/store';
@@ -19,7 +19,7 @@ import router from '@/router';
 
 export default defineComponent({
   name: 'Qr',
-  components: { CstButton },
+  // components: { CstButton },
   setup() {
     QrScanner.WORKER_PATH = QrScannerWorkerPath;
     const vidRef = ref(null);
@@ -38,6 +38,7 @@ export default defineComponent({
     }
     onMounted(() => {
       const vidEl = vidRef.value as unknown as HTMLVideoElement;
+
       const qrScanner = new QrScanner(vidEl, (result) => {
         console.log('decoded qr code:', result);
         try {
@@ -69,8 +70,7 @@ export default defineComponent({
   &-video {
     display: block;
     position: absolute;
-    width: 210px;
-    height: 210px;
+    width: 80%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) !important ;
