@@ -5,7 +5,12 @@
       richtige Geräusch gefunden!
     </h2>
     <CstButton class="home-button--first" :text="'nächstes Geräusch'" :route="'/playsound'" />
-    <CstButton class="home-button" :text="'gesammelte Geräusche'" :route="'/soundlist'" />
+    <CstButton
+      class="home-button"
+      :text="'gesammelte Geräusche'"
+      :route="'/soundlist'"
+      :dark="true"
+    />
   </div>
 </template>
 

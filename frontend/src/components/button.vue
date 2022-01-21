@@ -1,6 +1,6 @@
 <template>
   <router-link :to="props.route"
-    ><div>{{ props.text }}</div></router-link
+    ><div :class="{ dark: dark }">{{ props.text }}</div></router-link
   >
 </template>
 
@@ -12,6 +12,7 @@ export default defineComponent({
   props: {
     text: String,
     route: String,
+    dark: Boolean,
   },
   setup(props) {
     return {
@@ -37,5 +38,8 @@ div {
   transform: translateX(-50%);
   bottom: 5%;
   color: white;
+}
+.dark {
+  background: $color-blue;
 }
 </style>
