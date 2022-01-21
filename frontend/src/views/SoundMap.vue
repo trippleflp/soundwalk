@@ -55,9 +55,9 @@ export default defineComponent({
     margin-right: 15px;
   }
   &-map {
-    height: 300px;
-    padding: 0 20px;
-    margin: 30px auto;
+    height: 400px;
+    padding: 0 50px;
+    margin: 50px auto;
   }
 }
 </style>
