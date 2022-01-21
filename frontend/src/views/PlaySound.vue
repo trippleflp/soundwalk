@@ -13,7 +13,7 @@ export default defineComponent({
   name: 'PlaySound',
   setup() {
     onBeforeMount(() => {
-      if (State.currentId >= 9) {
+      if (State.currentId >= 8) {
         router.replace('/track');
       }
     });
