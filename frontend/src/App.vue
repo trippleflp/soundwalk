@@ -18,10 +18,10 @@ export default defineComponent({
 <style lang="scss">
 @import 'styles/colors';
 @import 'styles/reset';
-@import url('https://allfont.de/allfont.css?fonts=franklin-gothic-book');
+@import 'styles/fonts';
 
 #app {
-  font-family: Franklin Gothic Book, Helvetica, Arial, sans-serif;
+  font-family: FuturaStd, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $color-text;
