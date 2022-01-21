@@ -2,13 +2,13 @@
   <div class="route">
     <h2 class="route-header">Zurückgelegte Strecke</h2>
     <div class="route-map">
-      <MapContainer :iconPositions="locations" />
+      <MapContainer :iconPositions="locations" v-if="locations" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import MapContainer from '@/components/mapcontainer.vue';
 import State from '@/store';
 
@@ -16,11 +16,20 @@ export default defineComponent({
   name: 'Route',
   components: { MapContainer },
   setup() {
-    const id = State.currentId;
-    const locations = State.data
-      .map((sound) => sound.longlat)
-      .removeLastCondition(State.currentId !== 9);
-    console.log(locations);
+    const locations = ref(null as unknown as number[][]);
+    async function populateList() {
+      await State.waitDone();
+      const list: number[][] = [];
+      State.data
+        .map((sound, _) => sound.longlat)
+        .removeLastCondition(State.currentId !== 9)
+        .forEach((longlat, _) => {
+          list.push(longlat);
+        });
+      locations.value = list;
+    }
+
+    populateList();
 
     return {
       locations,
