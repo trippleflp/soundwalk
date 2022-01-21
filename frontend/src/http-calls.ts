@@ -7,4 +7,6 @@ const getSoundData = (id: number): Promise<Sound> =>
   fetch(`${baseUrl}/sound/${id}`).then((res) => res.json());
 
 const getSoundFileLink = (id: number): string => `${baseUrl}/file/${id}`;
-export { getSoundData, getSoundFileLink };
+
+const getFinalTrackLink = (): string => `${baseUrl}/file/track`;
+export { getSoundData, getSoundFileLink, getFinalTrackLink };

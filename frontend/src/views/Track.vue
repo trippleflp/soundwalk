@@ -2,7 +2,7 @@
   <div class="track">
     <h2>Track anhören</h2>
 
-    <div class="track-btn">
+    <div class="track-btn" @click="audio.play()">
       <img class="track-play" alt="Soundwalk logo" src="@/assets/play.svg" />
     </div>
     <div class="track-progress">
@@ -10,12 +10,13 @@
     </div>
     <div class="track-footer">
       <img class="track-share" alt="Soundwalk logo" src="@/assets/share.svg" />
-      <img class="track-download" alt="Soundwalk logo" src="@/assets/download.svg" />
+      <img class="track-download" alt="Soundwalk logo" src="@/assets/download.svg" @href="link" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { getFinalTrackLink } from '@/http-calls';
 // eslint-disable-next-line import/no-cycle
 import router from '@/router';
 import State from '@/store';
@@ -29,6 +30,14 @@ export default defineComponent({
         router.replace('/tracknotfinished');
       }
     });
+
+    const link = getFinalTrackLink();
+    const audio = new Audio(link);
+
+    return {
+      audio,
+      link,
+    };
   },
 });
 </script>
