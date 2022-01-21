@@ -76,7 +76,7 @@ export default defineComponent({
   &-btn {
     width: 90px;
     height: 90px;
-    margin: 150px auto;
+    margin: 130px auto;
     position: relative;
     background: #0f5ba2;
   }
