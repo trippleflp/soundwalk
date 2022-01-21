@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onBeforeMount } from 'vue';
 import State from '@/store';
 import { getSoundFileLink } from '@/http-calls';
 // eslint-disable-next-line import/no-cycle
@@ -12,10 +12,12 @@ import router from '@/router';
 export default defineComponent({
   name: 'PlaySound',
   setup() {
+    onBeforeMount(() => {
+      if (State.currentId !== 9) {
+        router.replace('/tracknotfinished');
+      }
+    });
     const id = State.currentId;
-    if (id >= 9) {
-      router.push('/track');
-    }
     const audio = new Audio(getSoundFileLink(id));
     audio.addEventListener('ended', () => {
       router.push('/soundmap');

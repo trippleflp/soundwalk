@@ -2,11 +2,12 @@
   <div class="track">
     <h2>Track anhören</h2>
 
-    <div class="track-btn" @click="audio.play()">
-      <img class="track-play" alt="Soundwalk logo" src="@/assets/play.svg" />
+    <div class="track-btn" @click="playPause()">
+      <img class="track-play" alt="Soundwalk logo" src="@/assets/play.svg" v-if="!isPlaying" />
+      <img class="track-play" alt="Soundwalk logo" src="@/assets/pause.svg" v-if="isPlaying" />
     </div>
     <div class="track-progress">
-      <div class="track-progress__slider"></div>
+      <div ref="slider" class="track-progress__slider"></div>
     </div>
     <div class="track-footer">
       <img class="track-share" alt="Soundwalk logo" src="@/assets/share.svg" />
@@ -20,7 +21,7 @@ import { getFinalTrackLink } from '@/http-calls';
 // eslint-disable-next-line import/no-cycle
 import router from '@/router';
 import State from '@/store';
-import { defineComponent, onBeforeMount } from 'vue';
+import { defineComponent, onBeforeMount, ref } from 'vue';
 
 export default defineComponent({
   name: 'PlaySound',
@@ -30,13 +31,38 @@ export default defineComponent({
         router.replace('/tracknotfinished');
       }
     });
-
+    const slider = ref<HTMLElement | null>(null);
+    const isPlaying = ref(false);
     const link = getFinalTrackLink();
     const audio = new Audio(link);
 
+    function playPause() {
+      if (isPlaying.value) {
+        audio.pause();
+        isPlaying.value = false;
+      } else {
+        audio.play();
+        isPlaying.value = true;
+      }
+    }
+    audio.addEventListener('timeupdate', () => {
+      const perc = (audio.currentTime / audio.duration) * 100;
+      if (!slider.value) {
+        return;
+      }
+      slider.value.style.left = `${perc}%`;
+    });
+
+    audio.addEventListener('ended', () => {
+      audio.currentTime = 0;
+      isPlaying.value = false;
+    });
+
     return {
-      audio,
       link,
+      playPause,
+      isPlaying,
+      slider,
     };
   },
 });
@@ -58,7 +84,7 @@ export default defineComponent({
     width: 40px;
     top: 50%;
     left: 50%;
-    transform: translate(-40%, -50%);
+    transform: translate(-50%, -50%);
   }
   &-progress {
     margin: 0 50px;
