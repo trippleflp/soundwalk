@@ -1,7 +1,7 @@
 <template>
   <div class="navigation">
     <header class="navigation-header">
-      <h1 class="navigation-heading">SOUND WALK</h1>
+      <img class="navigation-heading" src="@/assets/logo.png" />
       <img
         class="navigation-hamburger"
         src="@/assets/hamburger.svg"
@@ -75,11 +75,8 @@ $header-height: 55px;
     }
   }
   &-heading {
-    font-family: Rationale;
-    font-size: 36px;
-    line-height: 42px;
-    margin-left: 11px;
-    color: $color-text;
+    height: 55%;
+    margin-left: 15px;
   }
 
   &-hamburger {

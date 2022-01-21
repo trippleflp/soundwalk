@@ -27,6 +27,7 @@ export default defineComponent({
   color: $color-text;
   height: 100vh;
   background-color: $color-blue-dark;
+  overflow: hidden;
 }
 
 p {

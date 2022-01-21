@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h2 class="about-header">Über <span class="italic">Sound Walk</span></h2>
-    <img class="about-image" alt="Soundwalk logo" src="@/assets/Soundwalk.png" />
+    <img class="about-image" alt="Soundwalk logo" src="@/assets/Soundwalk.jpg" />
     <p class="about-text">
       Der Sound Walk soll spielerisch dazu beitragen, sich mit offeneren Ohren durch den Alltag zu
       bewegen.
@@ -25,6 +25,7 @@ export default defineComponent({
 @import '@/styles/colors';
 
 .about {
+  height: 100%;
   &-header {
     > span {
       font-style: italic;
@@ -34,6 +35,7 @@ export default defineComponent({
   &-image {
     display: block;
     margin: 37px auto 50px auto;
+    height: 30%;
   }
   &-text {
     // display: block;

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="home-image" alt="Soundwalk logo" src="@/assets/Soundwalk.png" />
+    <img class="home-image" alt="Soundwalk logo" src="@/assets/Soundwalk.jpg" />
     <p class="home-text">
       Willkommen bei Augsburgs akustischer Schnitzeljagd. Höre genau hin und finde jeweils die
       nächste Station. Am Ende kannst du dir einen Track aus allen Geräuschen anhören.
@@ -21,9 +21,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .home {
+  height: 100%;
   &-image {
     display: block;
     margin: 37px auto 50px auto;
+    height: 42%;
   }
   // &-text {
   //   display: block;
