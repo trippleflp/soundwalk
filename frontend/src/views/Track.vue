@@ -10,8 +10,10 @@
       <div ref="slider" class="track-progress__slider"></div>
     </div>
     <div class="track-footer">
-      <img class="track-share" alt="Soundwalk logo" src="@/assets/share.svg" />
-      <img class="track-download" alt="Soundwalk logo" src="@/assets/download.svg" @href="link" />
+      <!-- <img class="track-share" alt="Soundwalk logo" src="@/assets/share.svg" /> -->
+      <a :href="link" download="final-track.mp3">
+        <img class="track-download" alt="Soundwalk logo" src="@/assets/download.svg"
+      /></a>
     </div>
   </div>
 </template>
@@ -27,7 +29,7 @@ export default defineComponent({
   name: 'PlaySound',
   setup() {
     onBeforeMount(() => {
-      if (State.currentId !== 9) {
+      if (State.currentId >= 9) {
         router.replace('/tracknotfinished');
       }
     });

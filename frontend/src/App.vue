@@ -34,7 +34,7 @@ p {
   font-size: 18px;
   line-height: 23px;
   display: block;
-  padding: 0 30px;
+  padding: 0 50px;
 }
 
 h2 {

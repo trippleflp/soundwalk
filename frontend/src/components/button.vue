@@ -35,7 +35,7 @@ div {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 80px;
+  bottom: 5%;
   color: white;
 }
 </style>

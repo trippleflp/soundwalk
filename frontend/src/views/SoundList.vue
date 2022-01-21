@@ -15,8 +15,12 @@
       </li>
     </ul>
 
-    <p>Dir fehlen noch Geräusche, um den Track anzuhören.</p>
-    <CstButton class="sounds-button" :text="'nächstes Geräusch'" :route="'/playsound'" />
+    <p v-if="len < 8">Dir fehlen noch Geräusche, um den Track anzuhören.</p>
+    <CstButton
+      class="sounds-button"
+      :text="len < 8 ? 'nächstes Geräusch' : 'Track anhören'"
+      :route="'/playsound'"
+    />
   </div>
 </template>
 
@@ -31,22 +35,25 @@ export default defineComponent({
   components: { CstButton },
   setup() {
     const list = ref(new Array(8));
+    const len = ref(0);
     async function populateList() {
       await State.waitDone();
       console.log(State.data);
 
       State.data
         .map((sound, i) => ({ name: sound.name, audio: new Audio(getSoundFileLink(i)) }))
-        .removeLastCondition(State.currentId !== 9)
+        .removeLastCondition(State.currentId < 8)
         .forEach((sound, i) => {
           list.value[i] = sound;
         });
+      len.value = State.currentId;
     }
 
     populateList();
 
     return {
       list,
+      len,
     };
   },
 });
@@ -58,6 +65,7 @@ export default defineComponent({
   &-list {
     list-style: none;
     padding-left: 50px;
+    margin-bottom: 30px;
   }
   &-item {
     font-weight: 650;

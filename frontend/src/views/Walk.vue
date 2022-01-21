@@ -1,6 +1,6 @@
 <template>
   <div class="route">
-    <h2 class="route-header">Zurückgelegte Strecke</h2>
+    <h2 class="route-header">Zurückgelegte Route</h2>
     <div class="route-map">
       <MapContainer :iconPositions="locations" v-if="locations" />
     </div>
